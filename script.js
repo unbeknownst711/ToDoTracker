@@ -1,7 +1,7 @@
 //======    Config  =============
 const DEBUG_INFO = 1.0
 
-//Item -> { id: int , name: str, state: bool }
+//Item -> [ id: int , name: str, state: bool ]
 
 
 
@@ -28,7 +28,13 @@ function addItem(id = -1, name = "", state = false){
     let newItemIndex = ItemArr[ItemArr.findLastIndex()][0] + 1 || 0;
     if(id != -1) newItemIndex = id;
 
-    ItemArr.push({ newItemIndex, name, state });
+    ItemArr.push([ newItemIndex, name, state ]);
+
+
+}
+
+function sortItem(){ //only call when needed
+    SortedItemArr = ItemArr.map((_, i) => i).sort((i, j) => ItemArr[i][1].localeCompare(ItemArr[j][1]));
 
 
 }
@@ -38,6 +44,18 @@ function addItem(id = -1, name = "", state = false){
 
 //======    Debug   ==============
 console.log("Debug Ver: " + DEBUG_INFO)
+
+//temp fill
+ItemArr = [
+    [0, "aaaaa", false],
+    [1, "ccccc", false],
+    [2, "bbbbb", false],
+    [3, "Ba", false]
+]
+sortItem();
+console.log(SortedItemArr);
+
+
 
 /* categories var example
 
