@@ -15,25 +15,29 @@ let index = 0
 
 
 //======    Init    =============
-function Init(){
+function Init() {
 
 }
 
 
 //======    Item Management     ========
-function addItem(id = -1, name = "", state = false){
-    if(id == -1) return;
-    if(name == "") return;
+function addItem(id = -1, name = "", state = false) {
+    if (id == -1) return;
+    if (name == "") return;
 
-    let newItemIndex = ItemArr[ItemArr.findLastIndex()][0] + 1 || 0;
-    if(id != -1) newItemIndex = id;
+    let newItemIndex;
+    if(ItemArr.length == 0) newItemIndex = 0
+    else newItemIndex = ItemArr.findLast[0];
 
-    ItemArr.push([ newItemIndex, name, state ]);
+    console.log("test")
+    if (id != -1) newItemIndex = id;
+
+    ItemArr.push([newItemIndex, name, state]);
 
 
 }
 
-function sortItem(){ //only call when needed
+function sortItem() { //only call when needed
     SortedItemArr = ItemArr.map((_, i) => i).sort((i, j) => ItemArr[i][1].localeCompare(ItemArr[j][1]));
 
 
@@ -46,12 +50,10 @@ function sortItem(){ //only call when needed
 console.log("Debug Ver: " + DEBUG_INFO)
 
 //temp fill
-ItemArr = [
-    [0, "aaaaa", false],
-    [1, "ccccc", false],
-    [2, "bbbbb", false],
-    [3, "Ba", false]
-]
+addItem(0, "aaaaa", false)
+addItem(1, "ccccc", false)
+addItem(2, "bbbbb", false)
+addItem(3, "Ba", false)
 sortItem();
 console.log(SortedItemArr);
 
