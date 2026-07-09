@@ -21,15 +21,13 @@ function Init() {
 
 
 //======    Item Management     ========
-function addItem(id = -1, name = "", state = false) {
-    if (id == -1) return;
+function addItem(name = "", id = -1, state = false) {
     if (name == "") return;
 
     let newItemIndex;
     if(ItemArr.length == 0) newItemIndex = 0
-    else newItemIndex = ItemArr.findLast[0];
+    else newItemIndex = ItemArr[ItemArr.length-1][0] + 1;
 
-    console.log("test")
     if (id != -1) newItemIndex = id;
 
     ItemArr.push([newItemIndex, name, state]);
@@ -50,12 +48,12 @@ function sortItem() { //only call when needed
 console.log("Debug Ver: " + DEBUG_INFO)
 
 //temp fill
-addItem(0, "aaaaa", false)
-addItem(1, "ccccc", false)
-addItem(2, "bbbbb", false)
-addItem(3, "Ba", false)
+addItem("aaaaa")
+addItem("ccccc")
+addItem("bbbbb")
+addItem("Ba", 5)
 sortItem();
-console.log(SortedItemArr);
+SortedItemArr.map((x) => console.log(ItemArr[x]));
 
 
 
